@@ -14,8 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class PushUpActivity extends Activity implements SensorEventListener
-{
+public class PushUpActivity extends Activity implements SensorEventListener {
+
     private SensorManager sensorManager;
     private Sensor prox;
     int onFloor;
@@ -23,8 +23,7 @@ public class PushUpActivity extends Activity implements SensorEventListener
     TextView pushView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_push_up);
         pushView = findViewById(R.id.countDisplay);
@@ -42,24 +41,20 @@ public class PushUpActivity extends Activity implements SensorEventListener
     }
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
         sensorManager.unregisterListener(this);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onSensorChanged(SensorEvent event)
-    {
+    public void onSensorChanged(SensorEvent event) {
         float count = event.values[0];
         TextView textView = findViewById(R.id.countDisplay);
-        if(count < 5 && onFloor == 0)
-        {
+        if(count < 5 && onFloor == 0){
             onFloor = 1;
         }
-        else if(count > 9.5 && onFloor == 1)
-        {
+        else if(count > 9.5 && onFloor == 1){
             onFloor = 0;
             pushUpCounter++;
             pushView.setText(""+pushUpCounter+"");
@@ -70,17 +65,15 @@ public class PushUpActivity extends Activity implements SensorEventListener
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int i)
-    {
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 
-    public void saveResult(View view)
-    {
+    public void saveResult(View view) {
         //Save pushUpCounter to database (Uzair handling this)
     }
 
-    public void returnToMain(View view)
-    {
+    public void returnToMain(View view) {
         // Do something in response to button
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
