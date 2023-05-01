@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WriteActivity">
+
+    <RelativeLayout
+        android:id="@+id/writeProgressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#800E0E0E">
+
+        <ProgressBar
+            android:id="@+id/writeProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edtBookName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Person Name"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:textColor="#DCDCDC"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtBookAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtBookName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Exercise"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:textColor="#DCDCDC"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtBookPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtBookAuthor"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Quantity"
+        android:inputType="number"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:textColor="#DCDCDC"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/btnSaveToDrive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#23AAE6"
+        android:padding="10dp"
+        android:text="Store Score"
+        android:textColor="#5E35B1"
+        android:textSize="20sp" />
+</RelativeLayout>
