@@ -1,37 +1,42 @@
-package com.example.pushupandplankingapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.fitpeak;
 
 import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
+    private Button btnRead;
+    private Button btnWrite;
+    private Button btnLeader;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Button button1 = this.findViewById(R.id.PUButton);
-//        button1.setOnClickListener(
-//                new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View view){dispatchTakePictureIntent();}
-//                }
-//        );
-    }
+        btnRead = findViewById(R.id.btnRead);
+        btnWrite = findViewById(R.id.btnWrite);
+        btnLeader = findViewById(R.id.btnLeader);
 
-    public void PushUps(View view) {
-        // Do something in response to button
-        Intent intent = new Intent(this, PushUpActivity.class);
-        startActivity(intent);
-    }
+        btnRead.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ReadActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+            finish();
+        });
 
-    public void Planking(View view) {
-        // Do something in response to button
-        Intent intent = new Intent(this, PlankingActivity.class);
-        startActivity(intent);
+        btnWrite.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, WriteActivity.class);
+            startActivity(intent);
+        });
+
+        btnLeader.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LeaderBoards.class);
+            startActivity(intent);
+        });
     }
 }
