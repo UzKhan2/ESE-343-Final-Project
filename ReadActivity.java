@@ -17,8 +17,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
-public class ReadActivity extends AppCompatActivity {
-
+public class ReadActivity extends AppCompatActivity
+{
     private RelativeLayout readProgressLayout;
     private ProgressBar readProgressBar;
     private RecyclerView recyclerView;
@@ -27,7 +27,8 @@ public class ReadActivity extends AppCompatActivity {
     private ArrayList<Book> fitList = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
 
@@ -39,15 +40,18 @@ public class ReadActivity extends AppCompatActivity {
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 "https://script.google.com/macros/s/AKfycbyXe3cAdQ6tmIEvH9MKRxGyY-yuuWzCMYsKkZyK9qLb_0_STbWaJOqqbZx5oa9E1p6q/exec",
                 null,
-                new Response.Listener<JSONObject>() {
+                new Response.Listener<JSONObject>()
+                {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONObject response)
+                    {
                         readProgressLayout.setVisibility(View.GONE);
                         readProgressBar.setVisibility(View.GONE);
-
-                        try {
+                        try
+                        {
                             JSONArray data = response.getJSONArray("fitList");
-                            for(int i=0; i<data.length(); i++){
+                            for(int i=0; i<data.length(); i++)
+                            {
                                 JSONObject bookJsonObject = data.getJSONObject(i);
                                 Book bookObject = new Book(
                                         bookJsonObject.getString("personName"),
@@ -60,23 +64,24 @@ public class ReadActivity extends AppCompatActivity {
                             recyclerView.setAdapter(recyclerAdapter);
                             recyclerView.setLayoutManager(layoutManager);
 
-                        } catch (JSONException e) {
+                        } catch (JSONException e)
+                        {
                             e.printStackTrace();
                             Toast.makeText(ReadActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
                 },
-                new Response.ErrorListener() {
+                new Response.ErrorListener()
+                {
                     @Override
-                    public void onErrorResponse(com.android.volley.VolleyError error) {
+                    public void onErrorResponse(com.android.volley.VolleyError error)
+                    {
                         readProgressLayout.setVisibility(View.GONE);
                         readProgressBar.setVisibility(View.GONE);
                         Toast.makeText(ReadActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
         Volley.newRequestQueue(this).add(jsonObjectRequest);
-
     }
 }
