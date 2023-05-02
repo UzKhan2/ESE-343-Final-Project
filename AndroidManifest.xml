@@ -21,6 +21,9 @@
             android:name=".WriteActivity"
             android:exported="false"/>
         <activity
+            android:name=".LeaderBoards"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
 
