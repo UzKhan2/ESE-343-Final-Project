@@ -1,27 +1,27 @@
 package com.example.fitpeak;
 
-        import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.view.View;
+import android.os.Bundle;
 
-        import android.content.Intent;
-        import android.view.View;
-
-        import android.os.Bundle;
-
-public class AttendanceMain extends AppCompatActivity {
-
+public class AttendanceMain extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_attendance);
     }
 
-    public void addAddress(View view) {
-        // Do something in response to button
+    public void addAddress(View view)
+    {
         Intent intent = new Intent(this, AddressActivity.class);
         startActivity(intent);
     }
 
-    public void checkAttendance(View view) {
+    public void checkAttendance(View view)
+    {
         // Do something in response to button
         Intent intent = new Intent(this, AttendanceActivity.class);
         startActivity(intent);
