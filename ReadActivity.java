@@ -24,7 +24,7 @@ public class ReadActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private ReadRecyclerAdapter recyclerAdapter;
-    private ArrayList<Book> fitList = new ArrayList<>();
+    private ArrayList<fData> fitList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,13 +52,13 @@ public class ReadActivity extends AppCompatActivity
                             JSONArray data = response.getJSONArray("fitList");
                             for(int i=0; i<data.length(); i++)
                             {
-                                JSONObject bookJsonObject = data.getJSONObject(i);
-                                Book bookObject = new Book(
-                                        bookJsonObject.getString("personName"),
-                                        bookJsonObject.getString("personActivity"),
-                                        bookJsonObject.getInt("activityData")
+                                JSONObject fitJsonObject = data.getJSONObject(i);
+                                fData fitObject = new fData(
+                                        fitJsonObject.getString("personName"),
+                                        fitJsonObject.getString("personActivity"),
+                                        fitJsonObject.getInt("activityData")
                                 );
-                                fitList.add(bookObject);
+                                fitList.add(fitObject);
                             }
                             recyclerAdapter= new ReadRecyclerAdapter(ReadActivity.this,fitList);
                             recyclerView.setAdapter(recyclerAdapter);
