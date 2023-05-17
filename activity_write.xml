@@ -22,7 +22,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/edtBookName"
+        android:id="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -36,10 +36,10 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/edtBookAuthor"
+        android:id="@+id/edtActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtBookName"
+        android:layout_below="@id/edtName"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -51,10 +51,10 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/edtBookPrice"
+        android:id="@+id/edtQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtBookAuthor"
+        android:layout_below="@id/edtActivity"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"

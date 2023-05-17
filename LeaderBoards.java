@@ -29,7 +29,7 @@ public class LeaderBoards extends AppCompatActivity
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private ReadRecyclerAdapter recyclerAdapter;
-    private ArrayList<Book> fitList = new ArrayList<>();
+    private ArrayList<fData> fitList = new ArrayList<>();
 
     TextView first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth;
 
@@ -65,15 +65,15 @@ public class LeaderBoards extends AppCompatActivity
                             JSONArray data = response.getJSONArray("fitList");
                             for(int i=0; i<data.length(); i++)
                             {
-                                JSONObject bookJsonObject = data.getJSONObject(i);
-                                values.add(bookJsonObject.getInt("activityData"));
-                                Book bookObject = new Book(
-                                        bookJsonObject.getString("personName"),
-                                        bookJsonObject.getString("personActivity"),
-                                        bookJsonObject.getInt("activityData")
+                                JSONObject fitJsonObject = data.getJSONObject(i);
+                                values.add(fitJsonObject.getInt("activityData"));
+                                fData fitObject = new fData(
+                                        fitJsonObject.getString("personName"),
+                                        fitJsonObject.getString("personActivity"),
+                                        fitJsonObject.getInt("activityData")
                                 );
 
-                                fitList.add(bookObject);
+                                fitList.add(fitObject);
                             }
 
                             Collections.sort(values, Collections.reverseOrder());
